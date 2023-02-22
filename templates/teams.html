@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block body %}
+    {% for team in teams %}
+    <h3>
+    {{team.name}}
+    </h3>
+<table class="table table-striped mt-3">
+  <thead class="thead">
+    <tr>
+    <th class="one">Name</th>
+    <th class="two">Description</th>
+    <th class="three">Completed</th>
+    </tr>
+    </thead>
+    <tbody class="tbody">
+    {%for project in projects%}
+    <tr>
+    {% if project.team_id == team.id %}
+    <td class="one">{{project.name}}</td>
+    <td class="two">{{project.description}}</td>
+    <td class="three">{{project.completed}}</td>
+    {% endif %}
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    {% endfor %}
+{% endblock %}

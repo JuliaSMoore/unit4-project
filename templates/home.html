@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block body %}
+<div class="wrapper">
+<div class="card text-center">
+    <form action="{{ url_for('add_team') }}" method="POST">
+        {{ team_form.csrf_token() }}
+        <div class="container">
+        {{ team_form.team_name.label }}
+        {{ team_form.team_name }}
+        </div>
+        <div class="container">
+        {{ team_form.submit }}
+        </div>
+    </form>
+    </div>
+    <div class="card text-center">
+    <form action="{{ url_for('add_project') }}" method="POST">
+        {{ project_form.csrf_token() }}
+        <div class="container">
+        {{ project_form.project_name.label }}
+        {{ project_form.project_name }}
+        </div>
+        <div class="container">
+        {{ project_form.description.label }}
+        {{ project_form.description }}
+        </div>
+        <div class="container">
+        {{ project_form.completed.label }}
+        {{ project_form.completed }}
+        </div>
+        <div class="container">
+        {{ project_form.team_assigned.label }}
+        {{ project_form.team_assigned }}
+        </div>
+        <div class="container">
+        {{ project_form.submit }}
+        </div>
+    </form>
+    </div>
+    </div>
+{% endblock %}
